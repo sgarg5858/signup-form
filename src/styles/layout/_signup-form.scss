@@ -1,0 +1,50 @@
+@use '../utils/functions' as *;
+
+form.signup-form
+{
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: rem(16);
+}
+.signup-form__card{
+    display:  flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    padding: rem(16);
+
+
+    min-height: rem(450);
+    height: auto;
+    max-height: rem(600);
+
+    min-width: rem(280);
+    max-width: rem(600);
+    width: calc( rem(250) + 12vw ) ;
+
+    &__header{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    &__content{
+        width: 100%;
+        display: flex !important;
+        flex-direction: column;
+        
+        &__form-control{
+            width: 100%;
+            margin-bottom: rem(16);
+        }
+    }
+    &__actions{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+}

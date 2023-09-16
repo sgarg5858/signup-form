@@ -30,6 +30,8 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/ngx-loading-buttons/src/styles.css",
+              "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -56,7 +58,13 @@
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
-              "namedChunks": true
+              "namedChunks": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.development.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -93,6 +101,8 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/ngx-loading-buttons/src/styles.css",
+              "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -100,5 +110,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "a63a44b6-5838-4df3-ae44-3c1c47e5ae32"
   }
 }

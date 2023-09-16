@@ -1,0 +1,36 @@
+@use './functions' as *;
+
+// we are using ranges 
+// 300-500 => very small devices
+// 500-700 small devices
+// 700-900 medium devices 
+// 900-1440 large devices
+// 1440-* xlarge devices 
+$breakpoints-up: (
+    'small': rem(500),
+    'medium':rem(700),
+    'large':rem(900),
+    'xlarge':rem(1440)
+);
+
+
+$breakpoints-down: (
+    'small': rem(499),
+    'medium':rem(699),
+    'large':rem(899),
+    'xlarge':rem(1439)
+);
+
+@mixin breakpoint-up($size){
+    @media (min-width: map-get($breakpoints-up,$size)) {
+         //This is going to load all the styles in the mixin itself when we are using it
+        @content;
+    }
+}
+
+@mixin breakpoint-down($size){
+    @media (max-width: map-get($breakpoints-down,$size)) {
+         //This is going to load all the styles in the mixin itself when we are using it
+        @content;
+    }
+}

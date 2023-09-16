@@ -1,0 +1,18 @@
+@use '../utils' as utils;
+html{
+    box-sizing: border-box;
+     /* Setting font-size to 100%, because this way it will match whats the font-size set for user browser
+    by default its set to 16px */
+    font-size: 100%;
+}
+*,*::before,*::after{
+    box-sizing: inherit;
+}
+
+body{
+    margin: 0px;
+    padding: 0px;
+    font-family: utils.$font-family;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
