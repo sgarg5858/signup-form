@@ -17,9 +17,9 @@ export class SignUpComponent {
   
   
   signupForm= this.formBuilder.group({
-    firstName:['Sanjay',[Validators.required]],
-    lastName:['Garg',[Validators.required]],
-    email:['sgarg5858@gmail.com',[Validators.required,Validators.email]]
+    firstName:['',[Validators.required]],
+    lastName:['',[Validators.required]],
+    email:['',[Validators.required,Validators.email]]
   })
 
   doSignup()
