@@ -1,11 +1,10 @@
 <main >
-
     <form [formGroup]="signupForm" class="signup-form" (ngSubmit)="doSignup()">
     
         <mat-card class="signup-form__card">
     
             <mat-card-header class="signup-form__card__header">
-                <mat-card-title>Welcome to Demo!</mat-card-title>
+                <mat-card-title class="signup-form__card__header__title" tabindex="0">Welcome to Demo!</mat-card-title>
             </mat-card-header>
     
             <mat-card-content class="signup-form__card__content">
@@ -13,10 +12,14 @@
                     <mat-form-field  appearance="outline" class="signup-form__card__content__form-control">
                         <mat-label>Enter your first name</mat-label>
                         <input matInput type="text" formControlName="firstName" placeholder="Your first name">
+
+                        <!-- we are checking the form only on blur events, not on every input change,
+                        thus we can avoid add additional check,if input is touched or dirty -->
                         <mat-error 
-                        *ngIf=" signupForm.controls.firstName.dirty && signupForm.controls.firstName.errors?.['required'] ">
+                        *ngIf="signupForm.controls.firstName.errors?.['required'] ">
                         First name is required
                         </mat-error>
+
                     </mat-form-field>
     
                     <mat-form-field appearance="outline" class="signup-form__card__content__form-control" >
@@ -24,7 +27,7 @@
                         <input matInput type="text" formControlName="lastName" placeholder="Your last name">
     
                         <mat-error 
-                        *ngIf=" signupForm.controls.lastName.dirty && signupForm.controls.lastName.errors?.['required'] ">
+                        *ngIf="signupForm.controls.lastName.errors?.['required'] ">
                         Last name is required
                         </mat-error>
     
@@ -35,12 +38,12 @@
                         <input matInput type="email" formControlName="email" placeholder="Your email">
     
                         <mat-error 
-                        *ngIf=" signupForm.controls.email.dirty && signupForm.controls.email.errors?.['required'] ">
+                        *ngIf="signupForm.controls.email.errors?.['required'] ">
                         Email is required
                         </mat-error>
     
                         <mat-error 
-                        *ngIf=" signupForm.controls.email.dirty && signupForm.controls.email.errors?.['email'] ">
+                        *ngIf="signupForm.controls.email.errors?.['email'] ">
                         Please enter a valid email
                         </mat-error>
     
@@ -48,8 +51,12 @@
             
             </mat-card-content>
     
+            <!-- Disabling & showing loading indicating while the api is in progress,
+            so that user is aware, that sign up process is in progress, and doesn't click the
+            button multiple times -->
             <mat-card-actions class="signup-form__card__actions">
                 <button 
+                class="signup-form__card__actions__button"
                 [disabled]="(authService.authenticatingUser$ | async)"
                 [class.spinner]="(authService.authenticatingUser$ | async)"
                 type="submit" 
@@ -63,5 +70,4 @@
         </mat-card>
     
     </form>
-    
 </main>

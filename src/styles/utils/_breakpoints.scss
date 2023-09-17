@@ -1,11 +1,13 @@
 @use './functions' as *;
 
-// we are using ranges 
+// Using ranges 
 // 300-500 => very small devices
 // 500-700 small devices
 // 700-900 medium devices 
 // 900-1440 large devices
 // 1440-* xlarge devices 
+
+//Will use this sass map for media queries where we use min-width from mobile to desktop
 $breakpoints-up: (
     'small': rem(500),
     'medium':rem(700),
@@ -13,6 +15,7 @@ $breakpoints-up: (
     'xlarge':rem(1440)
 );
 
+//Will use this sass map for media queries where we use max-width from desktop to mobile
 
 $breakpoints-down: (
     'small': rem(499),

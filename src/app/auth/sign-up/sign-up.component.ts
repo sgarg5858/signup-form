@@ -20,10 +20,14 @@ export class SignUpComponent {
     firstName:['',[Validators.required]],
     lastName:['',[Validators.required]],
     email:['',[Validators.required,Validators.email]]
-  })
+  },{updateOn:'blur'});
+  
+  //setting updateOn to blur, as our functionality , doesn't need to be checked on every input change
+  // and this also allows to remove dirty or touched check in the html while showing the errors
 
   doSignup()
   {
+    //Our form should be valid, before we try to do signup,otherwise just stop!
     if(this.signupForm.invalid) return;
     
     const userDetails = this.signupForm.value as User;
