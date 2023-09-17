@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { User } from './user';
 import { BehaviorSubject, delay, map, shareReplay } from 'rxjs';
 import { Router } from '@angular/router';
-import { MatSnackBar, MatSnackBarConfig, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
+import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 import { AriaLivePoliteness } from '@angular/cdk/a11y';
 
 export interface AuthState{
