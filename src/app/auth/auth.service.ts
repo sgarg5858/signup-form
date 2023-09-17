@@ -31,7 +31,7 @@ export class AuthService {
   private authState= new BehaviorSubject<AuthState>({authenticating:false,userLoggedIn:false,authError:null,user:null});
 
   public readonly  authenticatingUser$ = this.authState.asObservable().pipe(
-    map((authState:AuthState)=>authState.authenticating)
+    map((authState:AuthState)=>authState.authenticating),
   )
 
   public readonly  userLoggedIn$ = this.authState.asObservable().pipe(
@@ -47,7 +47,8 @@ export class AuthService {
     // 1. Setting the loading flags, so that we can show user, signup is in progress
     this.authState.next({authenticating:true,userLoggedIn:false,authError:null,user:null})
 
-    return this.httpClient.post<{}>('https://run.mocky.io/v3/83a6b808-0c67-4fa9-9879-cb08ea902ea6',user).pipe(delay(2000),shareReplay())
+    return this.httpClient.post<{}>('https://run.mocky.io/v3/83a6b808-0c67-4fa9-9879-cb08ea902ea6',user)
+    .pipe(delay(2000))
     .subscribe({
        next:()=>{
         
