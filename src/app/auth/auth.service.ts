@@ -38,6 +38,11 @@ export class AuthService {
     map((authState:AuthState)=>authState.userLoggedIn)
   )
 
+  public readonly  user$ = this.authState.asObservable().pipe(
+    map((authState:AuthState)=>authState.user)
+  )
+
+
   signUp(user:User){
     // 1. Setting the loading flags, so that we can show user, signup is in progress
     this.authState.next({authenticating:true,userLoggedIn:false,authError:null,user:null})
