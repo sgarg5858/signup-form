@@ -2,6 +2,16 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.1.
 
+## Branches in this repository
+
+I have created 3 branches :
+
+`1-ngModules` => This branch has the solution with ngModules
+
+`2-adopting-standalone-with-ngModules` => This branch has the solution with Both Standalone Components & NgModules
+
+`develop` => This branch has the solution without ngModules.
+
 
 ## Install Dependencies
 
@@ -19,13 +29,4 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Branches in this repository
-
-I have created 3 branches :
-
-1-ngModules => This branch has the solution with ngModules
-
-2-adopting-standalone-with-ngModules => This branch has the solution with Both Standalone Components & NgModules
-
-develop => This branch has the solution without ngModules.
 
