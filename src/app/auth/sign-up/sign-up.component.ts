@@ -1,12 +1,30 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import {NonNullableFormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { User } from '../user';
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.scss'],
+  standalone:true,
+  imports:[
+    CommonModule,
+    MatCardModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatSnackBarModule
+  ],
+  changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class SignUpComponent {
 

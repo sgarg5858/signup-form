@@ -9,7 +9,9 @@ const routes: Routes = [
     path:'signup',component:SignUpComponent
   },
   {
-    path:'home',component:HomeComponent,canActivate:[UserLoggedinGuard]
+    path:'home',
+    loadComponent:()=>import('./home/home/home.component').then((c)=>c.HomeComponent),
+    canActivate:[UserLoggedinGuard]
   },
   {
     path:'**',pathMatch:'full',redirectTo:'signup'
