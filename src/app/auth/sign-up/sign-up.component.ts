@@ -35,9 +35,9 @@ export class SignUpComponent {
   
   
   signupForm= this.formBuilder.group({
-    firstName:['',[Validators.required]],
-    lastName:['',[Validators.required]],
-    email:['',[Validators.required,Validators.email]]
+    firstName:['Sanjay',[Validators.required]],
+    lastName:['Garg',[Validators.required]],
+    email:['sgarg5858@gmail.com',[Validators.required,Validators.email]]
   },{updateOn:'blur'});
   
   //setting updateOn to blur, as our functionality , doesn't need to be checked on every input change

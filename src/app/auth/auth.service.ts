@@ -48,7 +48,6 @@ export class AuthService {
     this.authState.next({authenticating:true,userLoggedIn:false,authError:null,user:null})
 
     return this.httpClient.post<{}>('https://run.mocky.io/v3/83a6b808-0c67-4fa9-9879-cb08ea902ea6',user)
-    .pipe(delay(2000))
     .subscribe({
        next:()=>{
         
