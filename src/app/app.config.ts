@@ -5,9 +5,11 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptors, withInterceptorsFromDi } from '@angular/common/http';
 import {appRoutes} from './app.routes';
 import { ApplicationConfig } from '@angular/platform-browser';
-import { importProvidersFrom } from '@angular/core';
+import { ErrorHandler, importProvidersFrom } from '@angular/core';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { TrackHttpRequestService } from './interceptors/track-http-request.service';
+import { CustomErrorHandlerService } from './services/custom-error-handler.service';
+import { RetryHttpRequestsService } from './interceptors/retry-http-requests.service';
 
 
 export const appConfig: ApplicationConfig = {
@@ -19,7 +21,16 @@ export const appConfig: ApplicationConfig = {
       {
         provide:HTTP_INTERCEPTORS,
         multi:true,
+        useClass:RetryHttpRequestsService
+      },
+      {
+        provide:HTTP_INTERCEPTORS,
+        multi:true,
         useClass:TrackHttpRequestService
+      },
+      {
+        provide:ErrorHandler,
+        useClass:CustomErrorHandlerService
       }
      
     ],

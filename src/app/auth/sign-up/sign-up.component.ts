@@ -9,6 +9,7 @@ import {MatInputModule} from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { CommonModule } from '@angular/common';
+import { throwError } from 'rxjs';
 
 @Component({
   selector: 'app-sign-up',
@@ -49,6 +50,17 @@ export class SignUpComponent {
     if(this.signupForm.invalid) return;
     
     const userDetails = this.signupForm.value as User;
+    
+    // try {
+    //   setTimeout(()=>{
+    //     ({} as any).signup();
+    //   })
+    // } catch (error:unknown) {
+    //   {
+    //     throw error;
+    //   }
+    // }
+
     this.authService.signUp(userDetails);
   }
 }
