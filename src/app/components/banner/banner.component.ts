@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CanToggle } from '../can-toggle';
 
 @Component({
   selector: 'app-banner',
@@ -9,7 +10,7 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./banner.component.scss'],
   exportAs:'banner'
 })
-export class BannerComponent {
+export class BannerComponent implements CanToggle {
 
   showInfo=true;
   toggle()

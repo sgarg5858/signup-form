@@ -1,5 +1,5 @@
 <app-banner #banner="banner">
-    <button (click)="banner.toggle()">
+    <button [toggleTrigger]="banner">
         {{banner.showInfo ? 'Hide Info':'Show Info'}}
     </button>
 </app-banner>
